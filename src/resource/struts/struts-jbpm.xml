@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="jbpm_login" extends="struts-default" namespace="/">
+		<action name="login" class="loginAction" method="login">
+			<result name="success">/jsp/main.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+	</package>
+	
+	<package name="jbpm_deploy" extends="struts-default" namespace="/deploy">
+		<action name="preDeploy" class="deployAction" method="preDeploy">
+			<result name="success">/jsp/deploy/uploadFile.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="deploy" class="deployAction" method="deploy">
+			<result name="success">/jsp/deploy/workFlowView.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name = "view" class = "deployAction" method = "view"/>
+	</package>
+	
+	<package name="jbpm_flowMange" extends="struts-default" namespace="/flow">
+		<action name="start" class="flowDenitionAction" method="start">
+			<result name="success">/jsp/main.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<action name="view" class="flowDenitionAction" method="view">
+			<result name="success">/jsp/apply/view.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+	</package>
+	
+</struts>
